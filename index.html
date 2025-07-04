@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>UNDP Chatbot</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <header class="navbar">
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <div class="parallax">
+      <header class="navbar">
         <nav>
-            <ul class="nav-left">
-                <li><a href="#">About</a></li>
-                <li><a href="#">Countries</a></li>
-            </ul>
-            <a href="#top" class="logo">
-                <img src="logo.png" alt="UNDP logo">
-            </a>
-            <ul class="nav-right">
-                <li><a href="#">Chatbot</a></li>
-                <li><a href="#">Documents</a></li>
-            </ul>
+          <ul class="nav-left">
+            <li><a href="#about">About</a></li>
+            <li><a href="#countries">Countries</a></li>
+          </ul>
+          <a href="#top" class="logo">
+            <img src="assets/logo.png" alt="UNDP logo" />
+          </a>
+          <ul class="nav-right">
+            <li><a href="#chatbot">Chatbot</a></li>
+            <li><a href="#documents">Documents</a></li>
+          </ul>
         </nav>
-    </header>
+      </header>
+    </div>
 
     <section class="hero">
-        <div class="heading-mask">
-            <h1>Meet DisasterBot.</h1>
-        </div>
-        <a href="#" class="explore-btn">Try now</a>
+      <div class="heading-mask">
+        <h1>Meet DisasterBot.</h1>
+      </div>
+      <a href="#" class="explore-btn">Try now</a>
     </section>
 
-    <script src="app.js"></script>
-</body>
+    <section id="about">
+      <h1>About</h1>
+    </section>
+    <section id="countries">
+      <h1>Countries</h1>
+    </section>
+    <section id="chatbot">
+      <h1>Chatbot</h1>
+    </section>
+    <section id="documents">
+      <h1>Documents</h1>
+    </section>
+  </body>
 </html>
