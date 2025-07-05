@@ -75,20 +75,21 @@ html {
 
 body {
     font-family: system-ui, sans-serif;
-    background-color: #f2f1ee;
+    background: #f2f1ee;
     color: #111;
-    position: relative;
+    min-height: 100vh;
+    overflow-x: hidden;
 }
 
 .navbar {
-    padding: 3rem;
-    background: #fff;
+    padding: 2.5rem;
+    background: var(--undpds-color-white);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     position: fixed;
     /*add blur*/
     width: 100%;
     transform: scaleX(0);
-    z-index: 1;
+    z-index: 9;
     transform-origin: left;
     transition: all 1s ease;
 }
@@ -114,11 +115,13 @@ body {
 .navbar .nav-left {
     margin-right: auto;
     padding: 0 3rem;
+    margin-left: 20%;
 }
 
 .navbar .nav-right {
     margin-left: auto;
     padding: 0 3rem;
+    margin-right: 20%;
 }
 
 .navbar ul {
@@ -139,7 +142,7 @@ img {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    z-index: 2;
+    z-index: 10;
 }
 
 .navbar .logo img {
@@ -154,27 +157,60 @@ img {
     text-transform: uppercase;
 }
 
-.navbar nav a:hover {
+.navbar nav a:hover,
+.navbar nav a:active {
     color: #555;
 }
 
+
 section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+} 
 
 .hero {
-    padding: 2rem;
-    gap: 1rem;
+  height: 120vh;
+  position: relative;
+  overflow: hidden;
+} 
+
+.hero img {
+  position: absolute;
+  top:0;
+  left:0;
+  width:100%;
 }
+
+
+.hero-content {
+  z-index: 2;
+  position: relative;
+  will-change: transform;
+}
+
+#mountain,
+#foreground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  will-change: transform;
+  z-index: 1;
+  pointer-events: none;
+}
+
+#foreground {
+  z-index: 3;
+}
+
 
 .heading-mask {
     overflow: hidden;
-    height: 3.5rem; 
+    height: 6.5rem; 
     width: 100%;
     display: flex;
     justify-content: center;
@@ -184,10 +220,12 @@ section {
 }
 
 .hero h1 {
-    font-size: 3rem;
-    opacity: 0;
-    transform: translateY(150px);
-    transition: all 1s ease;
+  font-size: 6rem;
+  color: white;
+  opacity: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,.2);
+  transform: translateY(150px);
+  transition: all 1s ease;
 }
 
 .hero.show h1 {
@@ -196,17 +234,18 @@ section {
 }
 
 .explore-btn {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: transform 0.5s 1.2s ease, opacity 0.5s 1.2s ease;
+    display: inline-block;
     background-color: var(--undpds-color-blue-700);
     text-transform: uppercase;
     padding: 0.8rem 1.5rem;
     text-decoration: none;
     border-radius: 0.6rem;
     color: #ffffff;
-    border-radius: 0.3rem;
     font-weight: 500;
+    opacity: 0;
+    z-index: 5;
+    transform: translateY(50px);
+    transition: transform 0.5s 1.2s ease, opacity 0.5s 1.2s ease;
 }
 
 .hero.show .explore-btn {
@@ -224,9 +263,12 @@ h1 {
     letter-spacing: 1px;
 }
 
-p {
+.hero p {
+    color: white;
     opacity: 0;
-    font-weight: 400;
+    font-weight: 600;
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
     transform: translateY(50px);
     transition: all 0.5s 0.8s ease;
 }
@@ -237,7 +279,7 @@ p {
 }
 
 #about {
-    background-color: #00689d;
+    background: black;
     text-transform: uppercase;
 }
 
@@ -306,7 +348,7 @@ p {
 
 
 #documents {
-    background-color: #ffa600;
+    background-color: #B14D04;
     text-transform: uppercase;
 }
 

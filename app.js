@@ -1,9 +1,22 @@
 window.addEventListener('load', () => {
     const navbar = document.querySelector('.navbar');
     const hero = document.querySelector('.hero');
+    const backgroundHero = document.getElementById('mountain');
+    const foregroundHero = document.getElementById('foreground');
+    const heroContent= document.querySelector('.hero-content');
+
     navbar.classList.add('open');
     hero.classList.add('show');
-});
+
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      console.log('scrollY =', y);
+      backgroundHero.style.transform = `translateY(${y * -0.1}px)`;
+      foregroundHero.style.transform = `translateY(${y * -0.7}px)`;
+      heroContent.style.transform = `translateY(${y * 0.3}px)`;
+    });
+  });
+
 
 
 const rowPrompts = [
