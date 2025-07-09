@@ -67,3 +67,4 @@ const observer = new IntersectionObserver(
 );
 
 targets.forEach((target) => observer.observe(target));
+
