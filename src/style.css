@@ -434,6 +434,14 @@ section {
   margin-top: 10vh;
 }
 
+.slider button:hover {
+  cursor: pointer;
+}
+
+canvas:hover {
+  cursor: grab;
+}
+
 #chatbot {
   height: auto;
   background-color: white;
