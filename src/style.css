@@ -291,7 +291,7 @@ section {
   font-size: 4rem;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-  margin-top: 15rem;
+  margin-top: 20rem;
   animation: about-appear;
   opacity: 0;
   animation-timeline: view(0% 30%);
@@ -300,7 +300,7 @@ section {
 
 @keyframes about-appear {
   from {
-    transform: translateY(-300px);
+    transform: translateY(-400px);
     opacity: 0;
   }
 
@@ -414,10 +414,18 @@ section {
   height: auto;
 }
 
+.color-change section {
+  background: black;
+  transition: all 0.4s ease;
+}
+
+.color-change.scrolled section {
+  background: white;
+}
+
 #countries {
   height: 300vh;
   overflow-x: hidden;
-  background: black;
 }
 
 #countries h2 {
@@ -450,7 +458,6 @@ canvas:hover {
 
 #chatbot {
   height: auto;
-  background-color: white;
   text-transform: uppercase;
   overflow-x: hidden;
 }
@@ -544,19 +551,41 @@ canvas:hover {
 }
 
 #documents {
-  height: auto;
+  height: 400vh;
   background-color: #b14d04;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.documents-text {
+  height: 100%;
+  width: auto;
+  text-transform: uppercase;
+  font-family: Helvetica Now Display, sans-serif;
   text-transform: uppercase;
   justify-content: flex-start;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.documents-text {
-  margin-top: 30rem;
-  margin-bottom: 30rem;
-  text-transform: uppercase;
-  font-family: Helvetica Now Display, sans-serif;
+aside {
+  margin-top: 20vh;
+  position: sticky;
+  top: 15vh;
+}
+
+.grid-container {
+  margin-top: 40vh;
+  margin-right: 5rem;
+  display: grid;
+  grid-auto-columns: 200px;
+  grid-auto-rows: 200px;
+  gap: 1em;
+  grid-template-areas: 
+  "box-1 box-2 box-2"
+  "box-1 box-3 box-4"
+  "box-5 box-5 box-6";
 }
 
 .documents-text h1 {

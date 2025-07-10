@@ -74,6 +74,18 @@ const observer = new IntersectionObserver(
 
 targets.forEach((target) => observer.observe(target));
 
+// Change color when user scrolls to #Chatbot section
+const wrapper = document.querySelector(".color-change");
+const sec2Top = document.getElementById("chatbot").offsetTop;
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY >= sec2Top - 700) {
+    wrapper.classList.add('scrolled');
+  } else {
+    wrapper.classList.remove('scrolled');
+  }
+});
+
 // Create THREE.js scene
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 700, 0.1, 1000);
@@ -105,7 +117,7 @@ const countries = [
   { name: 'Tajikistan', lat: 38.9, lon: 71.3 },
   { name: 'Kazakhstan', lat: 48.0, lon: 66.9 },
   { name: 'Turkey', lat: 38.9, lon: 35.2 },
-  { name: 'USA', lat: 	44.5, lon: -89.5 }
+  { name: 'Wisconsin', lat: 44.5, lon: -89.5 }
 ];
 
 let currentIndex = 0;
@@ -127,7 +139,7 @@ function latLonToCartesian(lat, lon) {
 const gltfLoader = new GLTFLoader();
 gltfLoader.load('/earth/scene.gltf', gltf => {
   earthModel = gltf.scene;
-  earthModel.scale.set(10,10,10);
+  earthModel.scale.set(10, 10, 10);
   scene.add(earthModel);
   show(countries[currentIndex].lat, countries[currentIndex].lon);
 });
@@ -137,11 +149,9 @@ var spot = new THREE.Mesh(
   new THREE.SphereGeometry(0.02),
   new THREE.MeshBasicMaterial({ color: 'crimson' })
 );
-  spot.position.copy(
-    latLonToCartesian(0, 0).multiplyScalar(2)
-  );
+spot.position.copy(
+  latLonToCartesian(0, 0).multiplyScalar(2));
 scene.add(spot);
-
 
 // Button handlers
 document.querySelector('.next').addEventListener('click', () => {
@@ -157,14 +167,15 @@ document.querySelector('.prev').addEventListener('click', () => {
     countries[currentIndex].lon);
 });
 
+
 // Rotate to next country's location
 function show(lat, lon) {
   earthModel.rotation.set(
-				0,
-				THREE.MathUtils.degToRad( -lon ),
-				THREE.MathUtils.degToRad( -lat ),
-				'ZYX'
-		);
+    0,
+    THREE.MathUtils.degToRad(-lon),
+    THREE.MathUtils.degToRad(-lat),
+    'ZYX'
+  );
 }
 
 // Render loop
@@ -173,8 +184,8 @@ function animateLoop() {
   controls.update();
   renderer.render(scene, camera);
 }
-animateLoop();
 
+animateLoop();
 
 
 
