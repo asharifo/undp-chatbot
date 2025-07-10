@@ -76,19 +76,10 @@ targets.forEach((target) => observer.observe(target));
 
 // Create THREE.js scene
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth/700, 0.1, 1000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / 700, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#canvas')
 });
-
-// Load Earth model
-let loadedModel;
-const gltfLoader = new GLTFLoader();
-gltfLoader.load('/earth/scene.gltf', (gltfScene) => {
-  loadedModel = gltfScene;
-  loadedModel.scene.scale.set(10, 10, 10);
-  scene.add(loadedModel.scene);
-})
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, 700);
@@ -105,13 +96,85 @@ scene.add(ambientLight, camera);
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableZoom = false;
 controls.enablePan = false;
+controls.enableDamping = true;
+
+
+// Country list + rotation state
+const countries = [
+  { name: 'Vietnam', lat: 14.1, lon: 108.3 },
+  { name: 'Tajikistan', lat: 38.9, lon: 71.3 },
+  { name: 'Kazakhstan', lat: 48.0, lon: 66.9 },
+  { name: 'Turkey', lat: 38.9, lon: 35.2 },
+  { name: 'USA', lat: 	44.5, lon: -89.5 }
+];
+
+let currentIndex = 0;
+let earthModel = null;
+const countryHeader = document.querySelector('.current-country');
+
+// Lat/Lon to Cartesian on unit sphere
+function latLonToCartesian(lat, lon) {
+  const φ = THREE.MathUtils.degToRad(90 - lat);
+  const θ = THREE.MathUtils.degToRad(lon);
+  return new THREE.Vector3(
+    Math.sin(φ) * Math.cos(θ),
+    Math.cos(φ),
+    Math.sin(φ) * Math.sin(θ)
+  );
+}
+
+// Load Earth model and set centered on first country
+const gltfLoader = new GLTFLoader();
+gltfLoader.load('/earth/scene.gltf', gltf => {
+  earthModel = gltf.scene;
+  earthModel.scale.set(10,10,10);
+  scene.add(earthModel);
+  show(countries[currentIndex].lat, countries[currentIndex].lon);
+});
+
+// Add location marker
+var spot = new THREE.Mesh(
+  new THREE.SphereGeometry(0.02),
+  new THREE.MeshBasicMaterial({ color: 'crimson' })
+);
+  spot.position.copy(
+    latLonToCartesian(0, 0).multiplyScalar(2)
+  );
+scene.add(spot);
+
+
+// Button handlers
+document.querySelector('.next').addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % countries.length;
+  countryHeader.textContent = countries[currentIndex].name;
+  show(countries[currentIndex].lat,
+    countries[currentIndex].lon);
+});
+document.querySelector('.prev').addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + countries.length) % countries.length;
+  countryHeader.textContent = countries[currentIndex].name;
+  show(countries[currentIndex].lat,
+    countries[currentIndex].lon);
+});
+
+// Rotate to next country's location
+function show(lat, lon) {
+  earthModel.rotation.set(
+				0,
+				THREE.MathUtils.degToRad( -lon ),
+				THREE.MathUtils.degToRad( -lat ),
+				'ZYX'
+		);
+}
 
 // Render loop
-function animate() {
-  requestAnimationFrame(animate);
+function animateLoop() {
+  requestAnimationFrame(animateLoop);
   controls.update();
   renderer.render(scene, camera);
 }
+animateLoop();
 
-animate();
+
+
 
