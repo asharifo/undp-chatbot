@@ -1,3 +1,4 @@
+/* Style variables */
 :root {
   --undpds-color-black: #000;
   --undpds-color-white: #fff;
@@ -80,6 +81,7 @@ body {
   overflow-x: hidden;
 }
 
+/* Navigation bar setup where logo divides navbar into two */
 .navbar {
   padding: 2.5rem;
   background: var(--undpds-color-white);
@@ -181,6 +183,7 @@ img {
   will-change: transform;
 }
 
+/* Parallax effect */
 #mountain,
 #foreground {
   position: absolute;
@@ -266,6 +269,7 @@ h1 {
   transform: translateY(0);
 }
 
+/* basic section styles */
 section {
   display: flex;
   justify-content: center;
@@ -274,6 +278,7 @@ section {
   text-align: center;
 }
 
+/* How-to-use section animations and styling */
 #about {
   height: auto;
   background: linear-gradient(#17241f, var(--undpds-color-black));
@@ -363,6 +368,7 @@ section {
   margin-bottom: 2rem;
 }
 
+/* Containers of chatbot UI images */
 .box {
   background: var(--undpds-color-blue-700);
   border-radius: 10px;
@@ -509,6 +515,7 @@ canvas:hover {
   animation-play-state: paused;
 }
 
+/* Carousel row animations */
 @keyframes scroll-left {
   0% {
     transform: translateX(0);
@@ -563,6 +570,7 @@ canvas:hover {
   transition: all 1s ease;
 }
 
+/* Line-by-line masked-reveal animation */
 .documents-text.show .mask:nth-child(1) h1 {
   transition-delay: 0.2s;
 }
