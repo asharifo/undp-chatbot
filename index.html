@@ -3,7 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>UNDP Disasterbot</title>
+    <link rel="icon" href="https://www.undp.org/sites/g/files/zskgke326/files/2025-04/undp-logo-blue.4f32e17f.svg" type="image/x-icon">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -14,6 +15,7 @@
     <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
+    <!-- Fixed Overhead Navigation Bar -->
     <header class="navbar">
       <nav>
         <ul class="nav-left">
@@ -33,6 +35,7 @@
       </nav>
     </header>
 
+    <!-- Hero Landing Page-->
     <section class="hero">
       <div class="hero-content">
         <div class="heading-mask">
@@ -44,6 +47,7 @@
       <img src="public/hero-foreground.png" id="foreground" />
     </section>
 
+    <!-- Chatbot Use Guide -->
     <section id="about">
       <h1>Your disaster-related chatbot</h1>
       <div class="image-container">
@@ -66,6 +70,8 @@
     </section>
 
     <div class="color-change">
+
+      <!-- Supported Countries Display -->
       <section id="countries">
         <h2>We currently support 5 countries</h2>
         <div class="slider">
@@ -75,6 +81,8 @@
         </div>
         <canvas id="canvas"></canvas>
       </section>
+
+      <!-- Prompt Carousel -->
       <section id="chatbot">
         <div class="chatbot-text">
           <h1>Need inspiration?</h1>
@@ -93,6 +101,8 @@
         </section>
       </section>
     </div>
+
+    <!-- Extra Reading-->
     <section id="documents">
       <div class="documents-text">
         <div class="mask">
@@ -106,10 +116,11 @@
         </div>
       </div>
     </section>
+
+    <!-- Footer -->
     <div class="footer-container">
       <div class="fixed-footer">
         <div class="footer-content">
-          <!-- Header: logo + title -->
           <div class="footer-header">
             <img
               class="logo"

@@ -10,6 +10,7 @@ window.addEventListener("load", () => {
   const foregroundHero = document.getElementById("foreground");
   const heroContent = document.querySelector(".hero-content");
 
+  // Hero animations
   navbar.classList.add("open");
   hero.classList.add("show");
 
@@ -19,6 +20,7 @@ window.addEventListener("load", () => {
   });
 });
 
+// Carousel span text
 const rowPrompts = [
   [
     "What are the recommended evacuation routes for wildfires in my region?",
@@ -40,6 +42,7 @@ const rowPrompts = [
   ],
 ];
 
+// Create carousel spans
 window.addEventListener("DOMContentLoaded", () => {
   document.querySelectorAll(".marquee").forEach((marquee, idx) => {
     rowPrompts[idx].concat(rowPrompts[idx]).forEach((text) => {
@@ -50,6 +53,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 });
 
+// Document, chatbot, and about section animations
 const targets = document.querySelectorAll(
   ".documents-text, .chatbot-text, .about-container-1, .about-container-2"
 );
@@ -70,18 +74,20 @@ const observer = new IntersectionObserver(
 
 targets.forEach((target) => observer.observe(target));
 
+// Create THREE.js scene
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth/700, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer({
   canvas: document.querySelector('#canvas')
 });
 
+// Load Earth model
 let loadedModel;
 const gltfLoader = new GLTFLoader();
 gltfLoader.load('/earth/scene.gltf', (gltfScene) => {
   loadedModel = gltfScene;
-  gltfScene.scene.scale.set(10,10,10);
-  scene.add(gltfScene.scene);
+  loadedModel.scene.scale.set(10, 10, 10);
+  scene.add(loadedModel.scene);
 })
 
 renderer.setPixelRatio(window.devicePixelRatio);
@@ -91,7 +97,6 @@ renderer.render(scene, camera);
 
 const pointLight = new THREE.PointLight(0xffffff, 20);
 pointLight.position.set(0, 5, -5);
-
 const ambientLight = new THREE.AmbientLight(0x1f5a95);
 
 camera.add(pointLight);
@@ -101,6 +106,7 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.enableZoom = false;
 controls.enablePan = false;
 
+// Render loop
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
@@ -108,3 +114,4 @@ function animate() {
 }
 
 animate();
+
