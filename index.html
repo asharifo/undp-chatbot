@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+  </head>
+  <body>
+    <header class="navbar">
+      <nav>
+        <ul class="nav-left">
+          <li><a href="#about">How to use</a></li>
+          <li><a href="#countries">Countries</a></li>
+        </ul>
+        <a href="#top" class="logo">
+          <img
+            src="https://www.undp.org/sites/g/files/zskgke326/files/2025-04/undp-logo-blue.4f32e17f.svg"
+            alt="UNDP logo"
+          />
+        </a>
+        <ul class="nav-right">
+          <li><a href="#chatbot">Chatbot</a></li>
+          <li><a href="#documents">Read more</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-content">
+        <div class="heading-mask">
+          <h1>Meet DisasterBot.</h1>
+        </div>
+        <a href="chatbot.html" class="explore-btn">Try now</a>
+      </div>
+      <img src="public/hero-background.jpg" id="mountain" />
+      <img src="public/hero-foreground.png" id="foreground" />
+    </section>
+
+    <section id="about">
+      <h1>Your disaster-related chatbot</h1>
+      <div class="image-container">
+        <div class="image-item about-container-1">
+          <div class="box">
+            <img src="public/chatbot 1.webp" alt="chatbot image" />
+          </div>
+          <h2 class="about-text-1">Ask your question...</h2>
+        </div>
+        <div class="image-item about-container-2">
+          <h2 class="about-text-2 line1">
+            ...and receive an accurate response
+          </h2>
+          <h2 class="about-text-2 line2">tailored to your region. Simple.</h2>
+          <div class="box">
+            <img src="public/chatbot 1.webp" alt="chatbot image" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="color-change">
+      <section id="countries">
+        <h2>We currently support 5 countries</h2>
+        <div class="slider">
+          <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+          <h3>Press the arrows to get started</h3>
+          <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <canvas id="canvas"></canvas>
+      </section>
+      <section id="chatbot">
+        <div class="chatbot-text">
+          <h1>Need inspiration?</h1>
+          <h1>We will help you get started.</h1>
+        </div>
+        <section class="prompt-carousel">
+          <div class="prompt-row row-1">
+            <div class="marquee"></div>
+          </div>
+          <div class="prompt-row row-2">
+            <div class="marquee"></div>
+          </div>
+          <div class="prompt-row row-3">
+            <div class="marquee"></div>
+          </div>
+        </section>
+      </section>
+    </div>
+    <section id="documents">
+      <div class="documents-text">
+        <div class="mask">
+          <h1>Need</h1>
+        </div>
+        <div class="mask">
+          <h1>More</h1>
+        </div>
+        <div class="mask">
+          <h1>Info?</h1>
+        </div>
+      </div>
+    </section>
+    <div class="footer-container">
+      <div class="fixed-footer">
+        <div class="footer-content">
+          <!-- Header: logo + title -->
+          <div class="footer-header">
+            <img
+              class="logo"
+              src="https://www.undp.org/sites/g/files/zskgke326/files/2022-04/undp-logo-white.svg"
+              alt="UNDP logo"
+            />
+            <h3>United Nations<br />Development Programme</h3>
+          </div>
+
+          <hr />
+
+          <!-- Four columns -->
+          <div class="footer-columns">
+            <div class="footer-col">
+              <h4>WHO WE ARE</h4>
+              <ul>
+                <li><a href="#">About us</a></li>
+                <li><a href="#">Leadership</a></li>
+                <li><a href="#">Executive Board</a></li>
+                <li><a href="#">Our Partners</a></li>
+                <li><a href="#">Funding</a></li>
+                <li><a href="#">Transparency and Accountability</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>WHAT WE DO</h4>
+              <ul>
+                <li><a href="#">Sustainable Development Goals</a></li>
+                <li><a href="#">Human Development Report ↗</a></li>
+                <li><a href="#">Our Strategic Plan ↗</a></li>
+                <li><a href="#">Our expertise</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>OUR IMPACT</h4>
+              <ul>
+                <li><a href="#">News Centre</a></li>
+                <li><a href="#">Results</a></li>
+                <li><a href="#">Publications</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">Stories</a></li>
+                <li><a href="#">Asset library ↗</a></li>
+              </ul>
+            </div>
+            <div class="footer-col">
+              <h4>GET INVOLVED</h4>
+              <ul>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Procurement</a></li>
+                <li><a href="#">UNDP Shop ↗</a></li>
+                <li><a href="#">UNDP Giving</a></li>
+                <li><a href="#">Contact us</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Copyright -->
+          <div class="footer-copy">© United Nations Development Programme</div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js" defer></script>
+  </body>
+</html>
