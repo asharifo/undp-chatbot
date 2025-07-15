@@ -122,6 +122,7 @@ const countries = [
 
 let currentIndex = 0;
 let earthModel = null;
+let gpsMarker = null;
 const countryHeader = document.querySelector('.current-country');
 
 // Lat/Lon to Cartesian on unit sphere
@@ -144,6 +145,13 @@ gltfLoader.load('/earth/scene.gltf', gltf => {
   show(countries[currentIndex].lat, countries[currentIndex].lon);
 });
 
+/*
+gltfLoader.load('/gps-marker.glb', gltf => {
+  gpsMarker = gltf.scene;
+  scene.add(gpsMarker);
+}) */
+
+
 // Add location marker
 var spot = new THREE.Mesh(
   new THREE.SphereGeometry(0.02),
@@ -151,7 +159,7 @@ var spot = new THREE.Mesh(
 );
 spot.position.copy(
   latLonToCartesian(0, 0).multiplyScalar(2));
-scene.add(spot);
+scene.add(spot); 
 
 // Button handlers
 document.querySelector('.next').addEventListener('click', () => {

@@ -12,6 +12,8 @@
     "vite": "^7.0.4"
   },
   "dependencies": {
+    "@datastax/astra-db-ts": "^2.0.1",
+    "puppeteer": "^24.12.1",
     "three": "^0.178.0"
   },
   "description": "",
